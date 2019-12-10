@@ -16,13 +16,15 @@ namespace spaceship
         SpriteFont gameFont;
         SpriteFont timerFont;
 
+        Ship player = new Ship();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 960;
+            graphics.PreferredBackBufferHeight = 540;
         }
 
         protected override void Initialize()
@@ -84,6 +86,7 @@ namespace spaceship
             spriteBatch.Begin();
 
             spriteBatch.Draw(space_Sprite, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(ship_Sprite, new Vector2(player.position.X - 34, player.position.Y - 50), Color.White);
 
             spriteBatch.End();
 
