@@ -18,6 +18,8 @@ namespace spaceship
 
         Ship player = new Ship();
 
+        Asteroid testAsteroid = new Asteroid(300);
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,6 +73,7 @@ namespace spaceship
                 Exit();
 
             player.shipUpdate(gameTime);
+            testAsteroid.asteroidUpdate(gameTime);
 
             base.Update(gameTime);
         }
@@ -87,6 +90,7 @@ namespace spaceship
 
             spriteBatch.Draw(space_Sprite, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(ship_Sprite, new Vector2(player.position.X - 34, player.position.Y - 50), Color.White);
+            spriteBatch.Draw(asteroid_Sprite, new Vector2(testAsteroid.position.X - testAsteroid.radius, testAsteroid.position.Y - testAsteroid.radius), Color.White);
 
             spriteBatch.End();
 
