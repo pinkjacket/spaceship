@@ -13,14 +13,24 @@ namespace spaceship
     {
         public List<Asteroid> asteroids = new List<Asteroid>();
         public double timer = 2D;
+        public double maxTime = 2D;
+        public int nextSpeed = 240;
         public void conUpdate(GameTime gameTime)
         {
             timer -= gameTime.ElapsedGameTime.TotalSeconds;
 
             if(timer <= 0)
             {
-                asteroids.Add(new Asteroid(250));
-                timer = 2D;
+                asteroids.Add(new Asteroid(nextSpeed));
+                timer = maxTime;
+                if (maxTime > 0.5)
+                {
+                    maxTime -= 0.1D;
+                }
+                if (nextSpeed < 600)
+                {
+                    nextSpeed += 4;
+                }
             }
         }
     }
