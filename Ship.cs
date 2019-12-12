@@ -22,19 +22,19 @@ namespace spaceship
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (gameController.inGame)
             {
-                if (kState.IsKeyDown(Keys.Right))
+                if (kState.IsKeyDown(Keys.Right) && position.X <960)
                 {
                     position.X += speed * dt;
                 }
-                if (kState.IsKeyDown(Keys.Left))
+                if (kState.IsKeyDown(Keys.Left) && position.X > 0)
                 {
                     position.X -= speed * dt;
                 }
-                if (kState.IsKeyDown(Keys.Up))
+                if (kState.IsKeyDown(Keys.Up) && position.Y > 0)
                 {
                     position.Y -= speed * dt;
                 }
-                if (kState.IsKeyDown(Keys.Down))
+                if (kState.IsKeyDown(Keys.Down) && position.Y < 540)
                 {
                     position.Y += speed * dt;
                 }

@@ -14,6 +14,7 @@ namespace spaceship
         public Vector2 position;
         public int speed;
         public int radius = 59;
+        public bool offscreen = false;
         static Random rand = new Random();
 
         public Asteroid(int newSpeed)
