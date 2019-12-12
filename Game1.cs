@@ -80,6 +80,15 @@ namespace spaceship
             for (int i = 0; i < gameController.asteroids.Count; i++)
             {
                 gameController.asteroids[i].asteroidUpdate(gameTime);
+
+                int sum = gameController.asteroids[i].radius + 30;
+                if (Vector2.Distance(gameController.asteroids[i].position, player.position) < sum)
+                {
+                    gameController.inGame = false;
+                    player.position = Ship.startingPosition;
+                    i = gameController.asteroids.Count;
+                    gameController.asteroids.Clear();
+                }
             }
 
             base.Update(gameTime);
